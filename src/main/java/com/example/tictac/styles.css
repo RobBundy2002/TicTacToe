@@ -1,0 +1,15 @@
+/* styles.css */
+.button {
+    -fx-font-size: 24px;
+    -fx-font-family: "Arial";
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #333;
+}
+
+.button:hover {
+    -fx-background-color: #ddd;
+}
+
+#grid-pane {
+    -fx-alignment: center;
+}
