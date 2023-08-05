@@ -77,13 +77,16 @@ public class TicTacToeGame extends Application {
         if (isGameOver()) {
             showGameOverAlert();
             resetBoard();
-        } else {
+        } else if(catWins()) {
+            resetBoard();
+        }
+        else {
             currentPlayer = currentPlayer.equals(PLAYER_X) ? PLAYER_O : PLAYER_X;
         }
     }
 
     private boolean isGameOver() {
-        return isAnyRowComplete() || isAnyColumnComplete() || isAnyDiagonalComplete() || isBoardFull();
+        return isAnyRowComplete() || isAnyColumnComplete() || isAnyDiagonalComplete();
     }
 
     private boolean isAnyRowComplete() {
@@ -126,6 +129,21 @@ public class TicTacToeGame extends Application {
             }
         }
         return true;
+    }
+    private boolean catWins(){
+        if(isBoardFull()){
+            showGameOverAlertNumber2();
+        return true;
+        }
+        return false;
+    }
+
+    private void showGameOverAlertNumber2(){
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Game Over");
+        alert.setHeaderText(null);
+        alert.setContentText("Game Over! The Cat wins!");
+        alert.showAndWait();
     }
 
     private void showGameOverAlert() {
